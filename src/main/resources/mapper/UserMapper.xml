@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cwh.springbootCache.mapper.UserMapper">
+ 
+  <select id="findUserInfo" resultType="com.cwh.springbootCache.entity.User" parameterType="java.lang.Integer">
+    select id,name  from user where id=#{id}
+  </select>
+  <insert id="addUserInfo" parameterType="com.cwh.springbootCache.entity.User">
+  	insert into user (id, name
+      )
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="updateUserInfo" parameterType="com.cwh.springbootCache.entity.User">
+  	update user set name=#{name} where id=#{id}
+  </insert>
+  <delete id="delUserInfo" parameterType="java.lang.Integer">
+   delete from user where id = #{id,jdbcType=INTEGER}
+  </delete>
+ 
+</mapper>
